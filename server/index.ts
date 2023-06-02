@@ -7,8 +7,10 @@ const app = waga();
 app.use(waga.static(`${__dirname}/../client`));
 app.get('favicon.ico', waga.redirect('https://agacraft.ga/src/img/icono.ico'));
 
-const server = app.listen(3000, () => {
-	console.log('listening on port 3000');
+const PORT = process.env.PORT || 3000
+
+const server = app.listen(PORT, () => {
+	console.log(`listening on port ${PORT}`);
 });
 
 const maxX = 1024;
