@@ -2,12 +2,12 @@ const GRAVITY = 0.5;
 
 type Direction = 'up' | 'down' | 'left' | 'right';
 type EventsCollision = `${Direction}Collision`;
-type Events = EventsCollision | 'kill';
 type EventArgs = {
 	kill: () => void;
 } & {
 	[key in EventsCollision]: (object: Collision | Game) => void;
 };
+type Events = keyof EventArgs;
 
 export class Event {
 	#events = new Map();
@@ -33,7 +33,7 @@ export interface ElementObject{
 export class Element extends Event {
 	id: number;
 	position: { x: number; y: number; };
-	game: Game;
+	game = null as unknown as Game;
 	constructor(id: number, x: number, y: number) {
 		super();
 		this.id = id;

@@ -1,6 +1,6 @@
 import socket from './socket.js';
-import { Sprite } from './js/classes.js';
-import kerwordsPress from './js/keywords.js';
+import { Sprite } from './classes.js';
+import kerwordsPress from './keywords.js';
 
 async function main() {
 	const canvas = document.querySelector('canvas');
