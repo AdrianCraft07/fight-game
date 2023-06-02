@@ -7,7 +7,7 @@ const app = waga();
 app.use(waga.static(`${__dirname}/../client`));
 app.get('favicon.ico', waga.redirect('https://agacraft.ga/src/img/icono.ico'));
 
-const PORT = process.env.PORT || 3000
+const PORT = (process.env.PORT as unknown as number) || 3000
 
 const server = app.listen(PORT, () => {
 	console.log(`listening on port ${PORT}`);
